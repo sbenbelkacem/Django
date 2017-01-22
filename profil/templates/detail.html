@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous"> {% load static %}
+        <link href="{% static "css/style.css" %}" rel="stylesheet" >
+</head>
+
+<body>
+
+    <div class="container">
+
+<div class="navbar-header">
+        
+         <a class="btn btn-navbar navbar-toggle collapsed" aria-expanded="false" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </a>
+            <div id="divImgLogo">
+                <a href="https://hoolders.com/">
+                <img id="imgLogoHoolders" src="{% static "hoolders_logo.png" %}" style="
+    width: 30%" class="img-responsive img-rounded" alt="Logo-Hoolders">
+                </a>
+            </div>
+    </div>
+
+    <div class="navbar-collapse collapse" style="margin: 11px;
+    border-bottom: 3px solid #F5F5F9;">
+                <ul class="nav nav-pills">
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top:0"><p style="font-size: 18pt; font-family: OratorStd; color: rgb(255, 172, 19); z-index: auto;">Investir</p></a>  
+    </li>
+                <li class="hidden-xs col-sm-1 col-md-1 col-lg-1" style="border-left:1px solid #C0C0C0;line-height:50px;width:5px;padding:0px;margin:0px;height:30px"></li>
+
+    <li><a style="padding-top:0" href="#" class="dropdown-toggle" data-toggle="dropdown" title="Rechercher des fonds"><p style="font-size: 18pt; font-family: OratorStd; color: rgb(255, 172, 19); z-index: auto;">Se financer</p></a>
+        
+        </li>
+
+
+        
+                <li class="hidden-xs col-sm-1 col-md-1 col-lg-1" style="border-left:1px solid #C0C0C0;line-height:50px;width:5px;padding:0px;margin:0px;height:30px"></li>
+    <li><a style="padding-top:0" href="#" id="clickScriptConnexion" data-target="#modalConnexion" data-toggle="modal"><p style="font-size: 18pt; font-family: OratorStd; color: rgb(255, 172, 19); z-index: auto;">{{profile.prenom}} {{profile.nom}}</p></a>
+        </li>
+
+</ul>
+                <!-- </div> -->
+            </div>
+<h2 clas="samir" style="text-align: center;"> <span style="color: red;">Tableau de Bord</span> {{profile.nom}} {{profile.prenom}}
+    <button type="button" class="btn btn-default btn-sm" style="background:red;" onclick="alert('TODO log out');">
+          <span class="glyphicon glyphicon-off"></span> Déconnexion
+        </button>
+</h2>
+<p clas="izan" style="padding-bottom:10px; margin-left: 300px; border-bottom: 2px groove #F5F5F9;">
+    <strong>Découvrir les entreprises en financement</strong>
+    <a href="#" onclick="alert('TODO redirect');" style="background: rgb(255, 172, 19);
+    border: 1px solid black;">
+        <span class="glyphicon glyphicon-share-alt"></span>
+        Voir la liste
+    </a>
+</p>
+
+        <div class="col-md-3 column margintop20">
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
+                <li><a href="#anchor1" id="mon-profil"><span class="glyphicon glyphicon-user"></span> Mon profil</a></li>
+                <li><a href="#" ><span class="glyphicon glyphicon-briefcase"></span> Les entreprises en finnancement </a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-briefcase"></span> Mon projet</a></li>
+                <li><a href="#"><span class=" glyphicon glyphicon-ok-circle"></span> Projets à valider</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-ok-circle"></span> Documents des projets</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-ok-circle"></span> Contrats à signer</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-ok-circle"></span> Gestion des investisseurs</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-ok-circle"></span> Gestion des investissements</a></li>
+                <li><a href="#"><span class=""></span> Mes investissements</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-zoom-in"></span> Les suivis</a></li>
+                <li><a href="#"><span class=""></span> Mon carnet d'addresse</a></li>
+            </ul>
+        </div>
+        <div class="hidden" id="information_profil">
+            <div class="col-md-3">
+                <img src="{% static "d6.jpg" %}" class="img-circle" style="width: 90%;">
+                <br>
+                <br>
+                <br>
+                <p>
+                <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+                modifier ses informations
+                </button>
+                </p>
+                <p>
+                <button type="button" class="btn btn-primary " data-toggle="modal">
+                changer de mot de passe
+                </button>
+                </p>
+                <p>
+                
+                <button type="button" class="btn btn-primary " data-toggle="modal">
+                modifier son profil investisseur
+                </button>
+                </p>
+                
+            </div>
+
+            <div class="col-md-6">
+                <p class="text-center"> <b>Mes informations</b> </p>
+
+                <table class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <td><strong>Nom d'utilisateur</strong></td>
+                        <td>{{profile.nom_utilisateur}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nom</strong> </td>
+                        <td>{{profile.nom}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prenom</strong> </td>
+                        <td>{{profile.prenom}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Adresse email</strong> </td>
+                        <td  id="addresse-email">{{profile.adresse_email}}</td>
+                    </tr>
+                      <tr>
+                        <td><strong>Numéro de téléphone fixe</strong> </td>
+                        <td>{{profile.numero_telephone_fixe}}</td>
+                    </tr>
+                      <tr>
+                        <td><strong>Numéro de téléphone mobile</strong> </td>
+                        <td>{{profile.numero_telephone_mobile}}</td>
+                    </tr>
+                        <tr>
+                        <td><strong>adresse</strong> </td>
+                        <td>profile.adresse</td>
+                    </tr>
+                        <tr>
+                        <td><strong>ville</strong> </td>
+                        <td>profile.ville</td>
+                    </tr>
+                        <tr>
+                        <td><strong>code postal</strong> </td>
+                        <td>profile.code_postal</td>
+                    </tr>
+                        <tr>
+                        <td><strong>site internet</strong> </td>
+                        <td>profile.site_internet</td>
+                    </tr>
+                        <tr>
+                        <td><strong>votre description</strong> </td>
+                        <td>profile.votre_description</td>
+                    </tr>
+                        <tr>
+                        <td><strong>lien linkedin</strong> </td>
+                        <td>profile.lien_linkedin</td>
+                    </tr>
+                     </tr>
+                        <tr>
+                        <td><strong>lien facebook</strong> </td>
+                        <td>profile.lien_facebook</td>
+                    </tr>
+                     </tr>
+                        <tr>
+                        <td><strong>lien twitter</strong> </td>
+                        <td>profile.lien_twitter</td>
+                    </tr>
+                     </tr>
+                        <tr>
+                        <td><strong>centre interet</strong> </td>
+                        <td>profile.centre_interet</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            <label for="email" class="control-label">Email:</label>
+                            <input type="text" name="email" class="form-control" id="email">
+                            <input type="hidden" name="profile_id" value="{{profile.id}}"  id="profile_id">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="discard">Close</button>
+                    <button type="button" class="btn btn-primary" id="save-email" >enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
+    <script src="{% static "js/setup.js" %}"></script>
+    <script src="{% static "js/app.js" %}"></script>
+</body>
+
+</html>
